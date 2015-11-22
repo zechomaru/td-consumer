@@ -1,0 +1,25 @@
+<ion-pane class="body body_dash">
+  <div class="row responsive-sm responsive-md responsive-lg sub_header">
+    <div class="col">
+      <h5 ng-repeat="myName in myNames">{{myName.name}}</h5>
+    </div>
+  </div>
+  <div class="row sub_header_home">
+    <div class="col">
+      <h5><a href="#" ng-click="returnDash()"><i class="ion-chevron-left left_icon"></i></a> Cupones Vendidos</h5>
+    </div>
+  </div>
+  <!-- qr -->
+  <div class="row">
+    <div class="col">
+      <div class="list" ng-repeat="coupon in coupons">
+        <p>Cliente:</p>
+        <p class="font_size_20">{{coupon.name}} {{coupon.last}}</p>
+        <p ng-class="{'status-no': coupon.consume, 'status-si': !coupon.consume}">Estatus:</p>
+        <p ng-if="coupon.consume" class="status-no">Cupón no canjeado</p>
+        <p ng-if="!coupon.consume" class="status-si font_size_20">Cupón canjeado</p>
+      </div>
+    </div>
+  </div>
+ 
+</ion-pane>

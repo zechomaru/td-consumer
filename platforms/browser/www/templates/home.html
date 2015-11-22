@@ -1,0 +1,61 @@
+<ion-pane class="body body_dash">
+  <div class="row responsive-sm responsive-md responsive-lg sub_header">
+    <div class="col">
+      <h5 ng-repeat="myName in myNames">{{myName.name}}</h5>
+    </div>
+  </div>
+  <div class="row sub_header_home">
+    <div class="col">
+      <h5 >Seleccionar promoción y sucursal<a href="#" ng-show="b" ng-click="search()"><i class="ion-chevron-right right_icon"></i></a></h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col home_promotion">
+      <a class="home_click" href="" ng-click="promotion()">
+        <div class="row">
+          <div class="col-20"><img class="home_img" src="img/tikeck.png" alt=""></div>
+          <div class="col-50 col-center"><h3 class="color_white">Promoción</h3></div>
+          <div class="col-25 col-center text_right"><img class="home_img_mas" ng-hide="viewPromomotion == true" src="img/mas.png" alt=""><img class="home_img_mas" ng-show="viewPromomotion == true" src="img/menos.png" alt=""></div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <!-- promociones list-->
+  <div class="row" ng-show="viewPromomotion == true">
+    <div class="list home_list">
+      <label class="item item-radio item_radio_home" ng-repeat="promotion in promotions" ng-click="zone(promotion.zone_id)">
+        <input type="radio" name="group" ng-click="promotionId(promotion.id)">
+        <div class="item-content item_home">
+          {{promotion.title}}
+        </div>
+        <i class="radio-icon_home ion-ios-circle-outline"></i>
+        <i class="radio-icon ion-ios-checkmark-outline"></i>
+      </label>
+    </div>
+  </div>
+  <!-- sucursal-->
+  <div class="row">
+    <div class="col home_sucursal">
+      <a class="home_click" href="#" ng-click="viewSucursal()">
+        <div class="row">
+          <div class="col-20"><img class="home_img" src="img/ubicacion.png" alt=""></div>
+          <div class="col-50 col-center"><h3 class="color_white">Sucursal</h3></div>
+          <div class="col-25 col-center text_right"><img class="home_img_mas" ng-hide="viewZone == true" src="img/mas.png" alt=""><img class="home_img_mas" ng-show="viewZone == true" src="img/menos.png" alt=""></div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <!-- sucursal list-->
+  <div class="row" ng-show="viewZone == true">
+    <div class="list home_list">
+      <label class="item item-radio item_radio_home" ng-repeat="zone in zones">
+        <input type="radio" name="group2" ng-click="zoneId(zone.id)">
+        <div class="item-content item_home">
+          {{zone.name}}
+        </div>
+        <i class="radio-icon_home ion-ios-circle-outline"></i>
+        <i class="radio-icon ion-ios-checkmark-outline"></i>
+      </label>
+    </div>
+  </div>
+</ion-pane>
