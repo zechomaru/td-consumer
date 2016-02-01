@@ -1,0 +1,39 @@
+<ion-pane class="body body_dash">
+  <div class="row responsive-sm responsive-md responsive-lg sub_header">
+    <div class="col">
+      <h5 ng-repeat="myName in myNames">{{myName.name}}</h5>
+    </div>
+  </div>
+  <div class="row sub_header_home">
+    <div class="col">
+      <h5><a href="#" ng-click="returnDash()"><i class="ion-chevron-left left_icon"></i></a> Cupones Vendidos</h5>
+    </div>
+  </div>
+  <div class="row filter_head">
+    <div class="col">
+      <h6><a href="#" ng-click="filter = !filter"><i class="ion-chevron-down left_icon filter_row" ng-hide="filter"></i><i class="ion-chevron-up left_icon filter_row" ng-show="filter"></i></a> Filtrar por:</h6>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col animate-show" ng-show="filter"><a href="" ng-click="order('name')"><i class="ion-chevron-right vendidosFilter"></i> Orden alfabético</a></div>
+  </div>
+  <div class="row">
+    <div class="col animate-show" ng-show="filter"><a href="" ng-click="reverse=false;orderCanjeados('consume')"><i class="ion-chevron-right vendidosFilter"></i> Canjeado</a></div>
+  </div>
+  <div class="row">
+    <div class="col animate-show" ng-show="filter"><a href="" ng-click="reverse=false;orderNoCanjeados('!consume')"><i class="ion-chevron-right vendidosFilter"></i> No canjeado</a></div>
+  </div>
+  <!-- qr -->
+  <div class="row">
+    <div class="col">
+      <div class="list" ng-repeat="coupon in coupons | orderBy:predicate:reverse">
+        <p class="margin_left_26">Cliente:</p>
+        <p class="font_size_20"><i class="ion-ios-pricetags margin_right_10"></i>{{coupon.name}} {{coupon.last}}</p>
+        <p ng-class="{'status-no': !coupon.consume, 'status-si': coupon.consume}" class="margin_left_26">Estatus:</p>
+        <p ng-if="!coupon.consume" class="status-no"><i class="ion-close-round margin_right_10"></i>Cupón no canjeado</p>
+        <p ng-if="coupon.consume" class="status-si"><i class="ion-checkmark-round margin_right_10"></i>Cupón canjeado</p>
+      </div>
+    </div>
+  </div>
+ 
+</ion-pane>

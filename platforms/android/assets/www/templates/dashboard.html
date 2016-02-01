@@ -1,0 +1,56 @@
+<ion-pane class="body body_dash">
+  <div class="row responsive-sm responsive-md responsive-lg sub_header">
+    <div class="col">
+      <h5 ng-repeat="myName in myNames">{{myName.name}}</h5>
+    </div>
+  </div>
+  <div class="row sub_header_home">
+    <div class="col" ng-repeat="promotion in promotions">
+      <h5 ng-repeat="zone in zones"><a href="#" ng-click="return1()"><i class="ion-chevron-left left_icon"></i></a>{{promotion.title}} -- {{zone.name}}</h5>
+    </div>
+  </div>
+  <!-- qr -->
+  <div class="row">
+    <div class="col dash_qr">
+      <a class="home_click" href="" ng-click="scanBarcode()">
+        <div class="row">
+          <div class="col-20"><img class="home_img" src="img/qr.png" alt=""></div>
+          <div class="col-80 col-center"><h3 class="color_white">Escanear QR</h3></div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <!-- cupones vendidos-->
+  <div class="row">
+    <div class="col dash_cpv">
+      <a class="home_click" href="" ng-click="vendidos()">
+        <div class="row">
+          <div class="col-20 col-center"><div class="dash_span dash_span1"><div>{{cv.num}}</div></div></div>
+          <div class="col-80 col-center"><h3 class="color_white">Cupones vendidos</h3></div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <!-- cupones canjeados-->
+  <div class="row">
+    <div class="col dash_cc">
+      <a class="home_click" href="" ng-click="canjeados()">
+        <div class="row">
+          <div class="col-20"><div class="dash_span dash_span2"><div>{{cc.num}}</div></div></div>
+          <div class="col-80 col-center"><h3 class="color_white">Cupones canjeados</h3></div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <!-- cupones no canjeados-->
+  <div class="row">
+    <div class="col dash_cnc">
+      <a class="home_click" href="" ng-click="promotion()">
+        <div class="row">
+          <div class="col-20"><div class="dash_span dash_span2"><div>{{cn.num}}</div></div></div>
+          <div class="col-80 col-center"><h3 class="color_white">Cupones no canjeados</h3></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</ion-pane>
