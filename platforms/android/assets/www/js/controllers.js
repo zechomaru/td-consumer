@@ -22,7 +22,7 @@ angular.module('controllers', [])
       }).error(function(error, status, headers, config){
         $ionicPopup.alert({
           title: 'Error',
-          content: config + status + password + username
+          content: "tes" + config + status + password + username
         });
       });
     };
