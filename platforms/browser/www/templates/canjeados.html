@@ -13,10 +13,10 @@
   <div class="row">
     <div class="col">
       <div class="list" ng-repeat="coupon in coupons">
-        <p>Cliente:</p>
-        <p class="font_size_20">{{coupon.name}} {{coupon.last}}</p>
-        <p ng-show="coupon.verify == 1">Regalado a:</p>
-        <p ng-show="coupon.verify == 1" class="font_size_20">{{coupon.lastname}}</p>
+        <p class="margin_left_26">Cliente:</p>
+        <p class="font_size_20"><i class="ion-ios-pricetags margin_right_10"></i>{{coupon.name}} {{coupon.last}}</p>
+        <p ng-show="coupon.verify == 1" class="margin_left_26">Regalado a:</p>
+        <p ng-show="coupon.verify == 1" class="font_size_20"><i class="ion-android-star-outline margin_right_10"></i>{{coupon.lastname}}</p>
       </div>
     </div>
   </div>

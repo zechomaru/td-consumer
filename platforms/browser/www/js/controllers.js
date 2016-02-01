@@ -8,7 +8,7 @@ angular.module('controllers', [])
      $state.go('home');
   } else{
     $scope.signIn = function() {
-      $http.post("http://td.dev/api/partner", {
+      $http.post("http://10.25.224.113:8000/partner", {
       username: $scope.login.username,
       password: $scope.login.password
       }).success(function(data, status, headers, config){
@@ -44,7 +44,7 @@ angular.module('controllers', [])
     
 
     $scope.promotion = function(){
-      $http.get("http://td.dev/api/promotions/" + $window.localStorage['id'],{
+      $http.get("http://10.25.224.113:8000/promotions/" + $window.localStorage['id'],{
       }).success(function(data, status, headers, config){
           $scope.viewPromomotion = !$scope.viewPromomotion;
           $scope.promotions = data;
@@ -54,7 +54,7 @@ angular.module('controllers', [])
     };
     $scope.zone = function($id){
       $scope.zones= [];
-      $http.get("http://td.dev/api/zones/" + $id,{
+      $http.get("http://10.25.224.113:8000/zones/" + $id,{
       }).success(function(data, status, headers, config){
           $scope.zones = data;
       }).error(function(error, status, headers, config){
@@ -101,19 +101,19 @@ angular.module('controllers', [])
   $scope.scanBarcode = function() {
     $cordovaBarcodeScanner.scan()
       .then(function(barcodeData) {
-        $http.patch("http://td.dev/api/coupons/qr/" + barcodeData.text +"/" + localStorage['id'],{
+        $http.patch("http://10.25.224.113:8000/coupons/qr/" + barcodeData.text +"/" + localStorage['id'],{
         }).success(function(data, status){
           $ionicPopup.alert({
             title: 'Correct',
             content: 'Canjeado exitoso'
           });
-            $http.get("http://td.dev/api/coupons/exchange/count/" + a,{
+            $http.get("http://10.25.224.113:8000/coupons/exchange/count/" + a,{
             }).success(function(data, status){
                $scope.cc = data;
             }).error(function(error, status){
               $scope.cc = {"num":"0"};
             });
-            $http.get("http://td.dev/api/coupons/nocanjeados/count/" + a,{
+            $http.get("http://10.25.224.113:8000/coupons/nocanjeados/count/" + a,{
             }).success(function(data, status){
                $scope.cn = data;
             }).error(function(error, status){
@@ -130,7 +130,7 @@ angular.module('controllers', [])
       });
   };
    //promotion name
-   $http.get("http://td.dev/api/promotions/dashboard/" + a,{
+   $http.get("http://10.25.224.113:8000/promotions/dashboard/" + a,{
    }).success(function(data, status){
        $scope.promotions = data;
    }).error(function(error, status){
@@ -138,26 +138,26 @@ angular.module('controllers', [])
    });
    //sucursal name
 
-   $http.get("http://td.dev/api/zones/" + b,{
+   $http.get("http://10.25.224.113:8000/zones/" + b,{
    }).success(function(data, status){
       $scope.zones = data;
    }).error(function(error, status){
    });
   //cupones vendidos
-   $http.get("http://td.dev/api/coupons/vendidos/count/" + a,{
+   $http.get("http://10.25.224.113:8000/coupons/vendidos/count/" + a,{
    }).success(function(data, status){
       $scope.cv = data;
    }).error(function(error, status){
      $scope.cv = {"num":"0"};
    });
-   $http.get("http://td.dev/api/coupons/exchange/count/" + a,{
+   $http.get("http://10.25.224.113:8000/coupons/exchange/count/" + a,{
    }).success(function(data, status){
       $scope.cc = data;
    }).error(function(error, status){
      $scope.cc = {"num":"0"};
    });
 
-   $http.get("http://td.dev/api/coupons/nocanjeados/count/" + a,{
+   $http.get("http://10.25.224.113:8000/coupons/nocanjeados/count/" + a,{
    }).success(function(data, status){
       $scope.cn = data;
    }).error(function(error, status){
@@ -165,15 +165,27 @@ angular.module('controllers', [])
    });
 
 })
-.controller('VendidosCtrl', function($scope, $state, $http, $window, $ionicPopup) {
+.controller('VendidosCtrl', function($scope, $state, $http, $window, $ionicPopup, $filter) {
    $scope.myNames = $rootScope.partners;
-   $scope.filter = false;
+   var orderBy = $filter('orderBy');
+   $scope.reverse = true;
    $scope.coupons = [];
    $scope.returnDash = function(){
       $state.go('dashboard');
   };
+  //filter
+  $scope.order = function(predicate) {
+          $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
+          $scope.predicate = predicate;
+        };
+  $scope.orderCanjeados = function(predicate, reverse) {
+      $scope.coupons = orderBy($scope.coupons, predicate, reverse);
+    };
+    $scope.orderNoCanjeados = function(predicate, reverse) {
+      $scope.coupons = orderBy($scope.coupons, predicate, !reverse);
+    };
    //cupones vendidos
-  $http.get("http://td.dev/api/coupons/vendidos/" + a,{
+  $http.get("http://10.25.224.113:8000/coupons/vendidos/" + a,{
   }).success(function(data, status){
      $scope.coupons = data;
   }).error(function(error, status){
@@ -187,7 +199,7 @@ angular.module('controllers', [])
       $state.go('dashboard');
   };
    //cupones vendidos
-  $http.get("http://td.dev/api/coupons/canjeados/" + a,{
+  $http.get("http://10.25.224.113:8000/coupons/canjeados/" + a,{
   }).success(function(data, status){
      $scope.coupons = data;
   }).error(function(error, status){

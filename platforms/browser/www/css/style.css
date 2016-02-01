@@ -194,3 +194,49 @@
 .font_size_20{
 	font-size: 20px;
 }
+
+.animate-show {
+  line-height: 20px;
+  opacity: 1;
+  border-bottom: 1px solid black;
+  background: #E1F0FB;
+}
+.animate-show a{
+  text-decoration: none;
+  color: black;
+}
+
+.animate-show.ng-hide-add, .animate-show.ng-hide-remove {
+  transition: all linear 0.5s;
+}
+
+.animate-show.ng-hide {
+  line-height: 0;
+  opacity: 0;
+  padding: 0 10px;
+}
+.vendidosFilter:before{
+	background-color: transparent !important;
+}
+.filter_head{
+	background-color: #fff;
+}
+.filter_row{
+	font-size: 14px;
+}
+.filter_row:before{
+	padding: 4px 4px 4px 4px;
+    border-radius: 50%;
+    background-color: #44C8F6;
+    margin-right: 5px;
+}
+.list {
+    padding-left: 30px;
+    border-bottom: solid 1px gray;
+}
+.margin_left_26{
+	margin-left: 26px;
+}
+.margin_right_10:before{
+	margin-right: 10px;
+}
