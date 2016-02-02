@@ -8,7 +8,7 @@ angular.module('controllers', [])
      $state.go('home');
   } else{
     $scope.signIn = function() {
-      $http.post("http://10.25.224.113:8000/partner", {
+      $http.post("http://tudescuenton.com:8888/apibiz/partner", {
       username: $scope.login.username,
       password: $scope.login.password
       }).success(function(data, status, headers, config){
