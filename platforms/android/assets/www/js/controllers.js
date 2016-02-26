@@ -8,10 +8,15 @@ angular.module('controllers', [])
      $state.go('home');
   } else{
     $scope.SignIn = function() {
+      var config = {
+      headers : {
+          'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+      }
+    }
       $http.post("http://tudescuenton.com:8888/apibiz/partner", {
       username: $scope.login.username,
       password: $scope.login.password
-      }).success(function(data, status, headers, config){
+      }, config).success(function(data, status, headers, config){
         //console.log(data['login']);
         $window.localStorage['id'] = data['login'];
         if (localStorage.getItem('id')) {
