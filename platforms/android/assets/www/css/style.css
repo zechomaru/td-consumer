@@ -1,0 +1,242 @@
+/* Empty. Add your own CSS if you like */
+.body{
+	background-color: #e7e8e7;
+}
+.box_center{
+	-webkit-tranform-style: preserve-3d;
+	-moz-transform-style:preserve-3d;
+	transform.style:preserve-3d;
+	height: 30%;
+}
+.box_vertical_align{
+	position: relative;
+	top: 50%;
+	transform: tranlateY(-50%);
+}
+.header{
+	background-color: #eaf5fd;
+}
+.logo{
+	margin: 0 auto;
+    display: inherit;
+    width: 20%;
+    padding: 5px;
+}
+.sub_header{
+	color: #5a5f62;
+	background-color: #abd1ec;
+	height: 30px;
+	text-align: center;
+}
+.sub_header h5{
+	margin: 0 !important;
+	line-height: 0.3;
+	color: #585d60;
+
+}
+
+.login{
+	border: solid 2px #808080 !important;
+	width: 100%;
+	height: 50px !important;
+	border-radius: 10px;
+	text-align: center;
+	color: #808080 !important;
+	margin-bottom: 10px;
+	background-color: transparent;
+	font-size: 20px !important;
+	box-sizing: content-box;
+	line-height: initial !important;
+}
+.login_button{
+	background-color: #48abdc;
+	color: white;
+	border-radius: 10px;
+}
+
+/*home*/
+.sub_header_home{
+	color: #5a5f62;
+	background-color: #E0EEF8;
+	height: 30px;
+	text-align: center;
+	border-top: 2px solid #EEF6FC;
+	padding-bottom: 40px !important;
+}
+.sub_header_home h5{
+	margin: 0 !important;
+	line-height: 1.7;
+	color: #585d60;
+}
+.home_promotion{
+	background-color: #EC881D;
+	height: auto;
+}
+.home_img{
+	width: 85%;
+}
+.home_img_mas{
+	width: 40%;
+}
+.text_right{
+	text-align: right;
+}
+.home_click{
+	text-decoration: none;
+	color: #fff;
+}
+.color_white{
+	color: #fff;
+}
+.home_sucursal{
+	background-color: #FAA91C;
+	height: auto;
+}
+.home_list{
+	width: 90%;
+    margin: 0 auto;
+}
+.item_home{
+    background-color: #EAEAEA !important;
+}
+.item_radio_home{
+	border: none !important;
+}
+.body_dash{
+	background-color: #EAEAEA !important;
+}
+.radio-icon_home{
+	position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    padding: 14px;
+    height: 100%;
+    font-size: 24px;
+}
+/*dashboard*/
+.dash_qr{
+	background-color: #49ABDC;
+	height: auto;
+}
+.dash_cpv{
+	background-color: #1AA0CD;
+	height: auto;
+}
+.dash_cc{
+	background-color: #FAA91C;
+	height: auto;
+}
+.dash_cnc{
+	background-color: #EC881D;
+	height: auto;
+}
+.dash_span {
+    width:90%;
+}
+.dash_span:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height:0;
+    padding-bottom: 100%;
+    -moz-border-radius: 50%; 
+    -webkit-border-radius: 50%; 
+    border-radius: 50%;
+}
+.dash_span1:after {
+	background-color: #EDEDEE;
+}
+.dash_span1 div {
+	color: #EC881D;
+}
+.dash_span div {
+    float:left;
+    width:100%;
+    padding-top:50%;
+    line-height:1em;
+    margin-top:-0.5em;
+    text-align:center;
+    font-size: 25px;
+}
+.dash_span2:after {
+	background-color: #44C8F6;
+}
+.dash_span2 div {
+	color: #fff;
+}
+.left_icon{
+    float: left;
+    color: #fff;
+    font-size: 15px;
+}
+.ion-chevron-left:before {
+    padding: 5px 9px 5px 9px;
+    border-radius: 50%;
+    background-color: #44C8F6;
+}
+.right_icon{
+    float: right;
+    color: #fff;
+    font-size: 15px;
+}
+.ion-chevron-right:before {
+    padding: 5px 9px 5px 9px;
+    border-radius: 50%;
+    background-color: #44C8F6;
+}
+.status-no{
+	color:#A41200;
+}
+.status-si{
+	color: #28AE25;
+}
+.font_size_20{
+	font-size: 20px;
+}
+
+.animate-show {
+  line-height: 20px;
+  opacity: 1;
+  border-bottom: 1px solid black;
+  background: #E1F0FB;
+}
+.animate-show a{
+  text-decoration: none;
+  color: black;
+}
+
+.animate-show.ng-hide-add, .animate-show.ng-hide-remove {
+  transition: all linear 0.5s;
+}
+
+.animate-show.ng-hide {
+  line-height: 0;
+  opacity: 0;
+  padding: 0 10px;
+}
+.vendidosFilter:before{
+	background-color: transparent !important;
+}
+.filter_head{
+	background-color: #fff;
+}
+.filter_row{
+	font-size: 14px;
+}
+.filter_row:before{
+	padding: 4px 4px 4px 4px;
+    border-radius: 50%;
+    background-color: #44C8F6;
+    margin-right: 5px;
+}
+.list {
+    padding-left: 30px;
+    border-bottom: solid 1px gray;
+}
+.margin_left_26{
+	margin-left: 26px;
+}
+.margin_right_10:before{
+	margin-right: 10px;
+}
