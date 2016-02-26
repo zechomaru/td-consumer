@@ -7,7 +7,7 @@ angular.module('controllers', [])
   if (localStorage.getItem('id')) {
      $state.go('home');
   } else{
-    $scope.signIn = function($scope, $http) {
+    $scope.login = function() {
       $http.post("http://tudescuenton.com:8888/apibiz/partner", {
       username: $scope.login.username,
       password: $scope.login.password
@@ -34,7 +34,7 @@ angular.module('controllers', [])
     $scope.zones=[];
     $scope.viewPromomotion = false;
     $scope.viewZone = false;
-    $http.get("http://td.dev/api/partner/" + $window.localStorage['id'],{
+    $http.get("http://tudescuenton.com:8888/apibiz/partner/" + $window.localStorage['id'],{
     }).success(function(data, status){
        $rootScope.partners = data;
       $scope.myNames = $rootScope.partners;
@@ -44,7 +44,7 @@ angular.module('controllers', [])
     
 
     $scope.promotion = function(){
-      $http.get("http://10.25.224.113:8000/promotions/" + $window.localStorage['id'],{
+      $http.get("http://tudescuenton.com:8888/apibiz/promotions/" + $window.localStorage['id'],{
       }).success(function(data, status, headers, config){
           $scope.viewPromomotion = !$scope.viewPromomotion;
           $scope.promotions = data;
@@ -54,7 +54,7 @@ angular.module('controllers', [])
     };
     $scope.zone = function($id){
       $scope.zones= [];
-      $http.get("http://10.25.224.113:8000/zones/" + $id,{
+      $http.get("http://tudescuenton.com:8888/apibiz/zones/" + $id,{
       }).success(function(data, status, headers, config){
           $scope.zones = data;
       }).error(function(error, status, headers, config){
@@ -101,19 +101,19 @@ angular.module('controllers', [])
   $scope.scanBarcode = function() {
     $cordovaBarcodeScanner.scan()
       .then(function(barcodeData) {
-        $http.patch("http://10.25.224.113:8000/coupons/qr/" + barcodeData.text +"/" + localStorage['id'],{
+        $http.patch("http://tudescuenton.com:8888/apibiz/coupons/qr/" + barcodeData.text +"/" + localStorage['id'],{
         }).success(function(data, status){
           $ionicPopup.alert({
             title: 'Correct',
             content: 'Canjeado exitoso'
           });
-            $http.get("http://10.25.224.113:8000/coupons/exchange/count/" + a,{
+            $http.get("http://tudescuenton.com:8888/apibiz/coupons/exchange/count/" + a,{
             }).success(function(data, status){
                $scope.cc = data;
             }).error(function(error, status){
               $scope.cc = {"num":"0"};
             });
-            $http.get("http://10.25.224.113:8000/coupons/nocanjeados/count/" + a,{
+            $http.get("http://tudescuenton.com:8888/apibiz/coupons/nocanjeados/count/" + a,{
             }).success(function(data, status){
                $scope.cn = data;
             }).error(function(error, status){
@@ -130,7 +130,7 @@ angular.module('controllers', [])
       });
   };
    //promotion name
-   $http.get("http://10.25.224.113:8000/promotions/dashboard/" + a,{
+   $http.get("http://tudescuenton.com:8888/apibiz/promotions/dashboard/" + a,{
    }).success(function(data, status){
        $scope.promotions = data;
    }).error(function(error, status){
@@ -138,26 +138,26 @@ angular.module('controllers', [])
    });
    //sucursal name
 
-   $http.get("http://10.25.224.113:8000/zones/" + b,{
+   $http.get("http://tudescuenton.com:8888/apibiz/zones/" + b,{
    }).success(function(data, status){
       $scope.zones = data;
    }).error(function(error, status){
    });
   //cupones vendidos
-   $http.get("http://10.25.224.113:8000/coupons/vendidos/count/" + a,{
+   $http.get("http://tudescuenton.com:8888/apibiz/coupons/vendidos/count/" + a,{
    }).success(function(data, status){
       $scope.cv = data;
    }).error(function(error, status){
      $scope.cv = {"num":"0"};
    });
-   $http.get("http://10.25.224.113:8000/coupons/exchange/count/" + a,{
+   $http.get("http://tudescuenton.com:8888/apibiz/coupons/exchange/count/" + a,{
    }).success(function(data, status){
       $scope.cc = data;
    }).error(function(error, status){
      $scope.cc = {"num":"0"};
    });
 
-   $http.get("http://10.25.224.113:8000/coupons/nocanjeados/count/" + a,{
+   $http.get("http://tudescuenton.com:8888/apibiz/coupons/nocanjeados/count/" + a,{
    }).success(function(data, status){
       $scope.cn = data;
    }).error(function(error, status){
@@ -185,7 +185,7 @@ angular.module('controllers', [])
       $scope.coupons = orderBy($scope.coupons, predicate, !reverse);
     };
    //cupones vendidos
-  $http.get("http://10.25.224.113:8000/coupons/vendidos/" + a,{
+  $http.get("http://tudescuenton.com:8888/apibiz/coupons/vendidos/" + a,{
   }).success(function(data, status){
      $scope.coupons = data;
   }).error(function(error, status){
@@ -199,7 +199,7 @@ angular.module('controllers', [])
       $state.go('dashboard');
   };
    //cupones vendidos
-  $http.get("http://10.25.224.113:8000/coupons/canjeados/" + a,{
+  $http.get("http://tudescuenton.com:8888/apibiz/coupons/canjeados/" + a,{
   }).success(function(data, status){
      $scope.coupons = data;
   }).error(function(error, status){
