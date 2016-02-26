@@ -26,8 +26,8 @@ angular.module('controllers', [])
         }; 
       }).error(function(error, status, headers, config){
         $ionicPopup.alert({
-          title: 'Error',
-          content: 'a' + status
+          title: '1' + error,
+          content: 'a' + status + headers + config
         });
       });
     };
