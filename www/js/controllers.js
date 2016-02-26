@@ -7,7 +7,7 @@ angular.module('controllers', [])
   if (localStorage.getItem('id')) {
      $state.go('home');
   } else{
-    $scope.signIn = function() {
+    $scope.signIn = function($scope, $http) {
       $http.post("http://tudescuenton.com:8888/apibiz/partner", {
       username: $scope.login.username,
       password: $scope.login.password
