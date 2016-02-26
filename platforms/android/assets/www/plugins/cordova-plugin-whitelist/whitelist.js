@@ -1,3 +1,4 @@
+cordova.define("cordova-plugin-whitelist.whitelist", function(require, exports, module) {
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -25,3 +26,5 @@ if (!document.querySelector('meta[http-equiv=Content-Security-Policy]')) {
         console.warn(msg);
     }, 10000);
 }
+
+});

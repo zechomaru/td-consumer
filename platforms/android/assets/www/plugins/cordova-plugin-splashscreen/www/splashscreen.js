@@ -1,4 +1,6 @@
+cordova.define("cordova-plugin-splashscreen.SplashScreen", function(require, exports, module) {
 /*
+ *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
  * distributed with this work for additional information
@@ -18,10 +20,17 @@
  *
 */
 
-if (!document.querySelector('meta[http-equiv=Content-Security-Policy]')) {
-    var msg = 'No Content-Security-Policy meta tag found. Please add one when using the cordova-plugin-whitelist plugin.';
-    console.error(msg);
-    setInterval(function() {
-        console.warn(msg);
-    }, 10000);
-}
+var exec = require('cordova/exec');
+
+var splashscreen = {
+    show:function() {
+        exec(null, null, "SplashScreen", "show", []);
+    },
+    hide:function() {
+        exec(null, null, "SplashScreen", "hide", []);
+    }
+};
+
+module.exports = splashscreen;
+
+});
