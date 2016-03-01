@@ -8,9 +8,7 @@ angular.module('controllers', [])
      $state.go('home');
   } else{
     $scope.SignIn = function() {
-      $http.post("http://tudescuenton.com:8888/apibiz/partner", {
-      username: $scope.login.username,
-      password: $scope.login.password
+      $http.get("http://tudescuenton.com:8888/apibiz/partner/" + $scope.login.username + "/" + $scope.login.password,{
       }).success(function(data, status, headers, config){
         //console.log(data['login']);
         $window.localStorage['id'] = data['login'];
